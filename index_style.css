@@ -38,10 +38,11 @@ header> div.top > div.navi {
 
 header> div.top> div.navi> ul> li.menu> a {
     width: 100px ;
-    height: 30px ;
+    height: 100px ;
     float: left ;
     font-size: 12px;
     text-align: center;
+    line-height: 100px ;
     text-decoration : none;
 }
 
@@ -60,15 +61,16 @@ header> div.top> div.right_menu {
 
 header> div.top> div.right_menu> ul > li.r_menu {
     width: 50px ;
-    height: 30px ;
+    height: 100px ;
     float: left ;
     text-decoration-color: darkred;
 }
 
 header> div.top> div.right_menu> ul > li.r_menu > a {
     text-decoration-line : none;
+    line-height: 100px ;
 }
 
 header> div.top> div.right_menu> ul > li.r_menu > a > img {
-    max-width:100%; max-height:100%;
+    padding-top: 35px ;
 }
