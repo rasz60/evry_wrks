@@ -15,8 +15,8 @@ body {
 header {
     display: flex ;
     margin: 0 auto ;
-    width: 1500px ;
-    height: 70px ;
+    width: 1600px ;
+    height: 100px ;
     text-align: center;
     align-items: center;
 }
