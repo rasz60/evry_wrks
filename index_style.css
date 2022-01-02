@@ -1,76 +1,114 @@
 @charset "UTF-8";
+/* css reset start */
 *{
-    margin: 0 auto ;
+    margin: 0 ;
     padding: 0 ;
     box-sizing: border-box ;
     list-style: none ;
     font-family: sans-serif ;
     color: #222328 ;
-}
-
-header {
-    width: 1600px ;
-    height: 100px ;
-}
-
-header> div.top {
-    display: flex ;
-    width: 1600px ;
-    align-items: center;
-}
-
-header> div.top> div.logo {
-    width: 200px ;
-    height: 100px ;
-    display: flex ;
-    justify-content: center;
-    align-items: center;
-}
-
-header> div.top> div.logo> a> img {
-    max-width:100%; max-height:100%;
-}
-
-header> div.top > div.navi {
-    width: 1100px ;
-    text-align: center ;
-}
-
-header> div.top> div.navi> ul> li.menu> a {
-    width: 100px ;
-    height: 100px ;
-    float: left ;
-    font-size: 12px;
-    text-align: center;
-    line-height: 100px ;
     text-decoration : none;
 }
+/* css reset end */
 
-header> div.top> div.navi> ul> ul.submenu {
-    display: none ;
+body {
+    width: 1600px ; /* body 전체 width 1600px */
+    height: 2000px ;
+    margin: 0 auto ; /* body 전체를 margin 설정 */
 }
 
-header> div.top> div.right_menu {
+/* header start */
+header {
+    height: 100px ; /* width는 body값 상속 , height 100px */
+    text-align: center ;
+    display: flex ;
+    position: fixed ; top: 0;
+    background-color: white;
+}
+
+/* div top IN : logo , menu , right_menu */
+header> .top {
+    display: flex ; /* 순서대로 이어서 왼쪽 정렬 */
+    width: 1600px ;
+}
+
+/* logo : width 200px */ 
+header> .top> .logo {
+    width: 200px ;
+    line-height: 100px ;
+}
+
+header> .top> .logo> a> img {
+    vertical-align: middle; /* vertical-align으로 logo img 가운데 정렬 */
+}
+
+/* menu : NEW ARRIVAL ~ SALE ul 8개 */
+header> .top > .menu {
+    width: 1100px ;
+    display: flex ; /* ul list 순서대로 왼쪽 정렬 */
+    text-align: center ; /* 텍스트 가운데 정렬 */
+}
+
+header> .top> .menu> ul> .left_menu {
+    width: 100px ; /* 메뉴 한 칸당 100px 지정 */
+    font-size: 12px; /* font : 12px */
+    line-height: 100px ;
+    text-align: center; /* 텍스트 가운데 정렬 */ 
+}
+
+header> .top> .menu> ul> .left_menu> a:hover{
+    /* 메뉴에 마우스 올렸을 때 submenu 밑으로 나오게 하기 */
+}
+
+header> .top> .menu> ul> .submenu {
+    box-shadow: rgb(0, 0, 0); /* 박스 전체에 그림자 넣기 */
+    display: none ; /* 안보이게 하기 */
+}
+
+header> .top> .menu> ul> .submenu > li {
+    height: 40px ;  /* 한 칸당 높이 40px 지정 */
+    line-height: 40px ; /* 텍스트 세로 중앙 정렬을 위한 line-height 설정*/
+    font-size: 12px; /* font : 12px */    
+    display: block ; /* block(리스트)형태로 보이게 하기 */
+}
+
+header> .top> .menu> ul> .submenu > li > a {
+    text-decoration-line : none; /* link 포함된 a tag 폰트 서식 없애기(밑줄) */
+}
+
+header> .top> .menu> ul> .submenu > li > a:hover {
+    /* 배경색 바뀌기 구현 */
+}
+
+/* right_menu */
+header> .top> .right_menu {
     display: flex ;
     width: 300px ;
     font-size: 12px;
-    float: right ;
-    text-align: center;
-    align-items: center;
 }
 
-header> div.top> div.right_menu> ul > li.r_menu {
-    width: 50px ;
-    height: 100px ;
-    float: left ;
-    text-decoration-color: darkred;
+header> .top> .right_menu> ul > .r_menu {
+    width: 50px ; /* 각각 메뉴 width 50px  */
+    display : inline-block ; /* ul 리스트로 된 각 메뉴 한줄로 보이게 하기 */ 
+    line-height: 100px ; /* 텍스트 세로 중앙 정렬을 위한 line-height 설정*/
 }
 
-header> div.top> div.right_menu> ul > li.r_menu > a {
-    text-decoration-line : none;
-    line-height: 100px ;
+header> .top> .right_menu> ul > .r_menu > a {
+    text-decoration-line : none; /* link 포함된 a tag 폰트 서식 없애기(밑줄) */
 }
 
-header> div.top> div.right_menu> ul > li.r_menu > a > img {
-    padding-top: 35px ;
+header> .top> .right_menu> ul > .r_menu > a > img {
+    vertical-align: middle; /* vertical-align으로 logo img 가운데 정렬 */
 }
+/* header end */
+
+/* image slide start */
+.imageslide {
+    /* 슬라이드 기능 넣어야함 */
+    margin-top : 100px ;
+}
+
+.imageslide > img {
+    width: 1600px ;
+}
+/* image slide end */
