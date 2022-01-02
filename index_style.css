@@ -109,6 +109,71 @@ header> .top> .right_menu> ul > .r_menu > a > img {
 }
 
 .imageslide > img {
-    width: 1600px ;
+    width: 100% ;
 }
 /* image slide end */
+
+/* productbox1 start */
+.productbox {
+    margin-top: 50px ;
+    display: block ; /* ul 박스와 텍스트가 한 블럭씩 차지하게 설정 */
+    height: 950px ;
+    text-align: center;
+}
+
+h3 {
+    font-size: 30px ;
+    height: 100px;
+}
+
+h4 {
+    color: dimgray; /* h4(상품 이름) 색상 지정 */
+}
+
+h4 > small {
+    color: dimgray; /* h4> small ('원') 색상 지정 */
+}
+
+h4 > span {
+    color: darkred; /* h4> span (가격) 색상 지정 */
+}
+
+.productbox > ul {
+    display: flex ;
+    flex-wrap: wrap ; /* flex item들이 지정된 width를 벗어나면 여러 행으로 표시되게 설정 */
+    text-align: center;
+}
+
+.productbox > ul > li {
+    width: 25% ; height: 50% ; /* 각 상품 정보 박스가 전체 width의 25% height는 50%로 설정 */
+}
+
+.productbox > ul > li > .imgbox {
+    margin-top: 20px ;
+    height: 325px ;
+    line-height: 325px ;
+}
+
+.productbox > ul > li > .imgbox > img {
+    width: 100% ;
+    height: 100% ;
+    vertical-align: middle;  /* 상품 이미지가 세로 가운데 정렬되게 설정 */
+}
+
+.productbox > ul > li > .namebox {
+    overflow : hidden ; /* 블럭 길이를 초과하는 글씨를 안보이게 설정 */
+    height: 30px ;
+    line-height: 30px ;
+}
+
+.productbox > ul > li > .moneybox {
+    height: 30px ;
+    line-height: 30px ;
+}
+/* productbox1 end */
+
+/* sub_banner start */
+.sub_banner > img {
+    width: 100% ;
+}
+/* sub_banner end */
