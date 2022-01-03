@@ -27,12 +27,13 @@ body {
 header {
     height: 100px ; /* width는 body값 상속 , height 100px */
     text-align: center ;
-    display: flex ;
+    display: fixed ;
     position: fixed ; top: 0; /* 브라우저 창 제일 위에 붙은채로 위치 고정 */
     background-color: white;
-    font-family: 'Spoqa Han Sans', 'Noto Sans KR', 'Lato', sans-serif;
+    font-family: 'Spoqa Han Sans Neo', 'Noto Sans KR', 'Lato', sans-serif;
     font-weight: 400;
     box-shadow: 0 0 3px 0 rgb(0 0 0 / 20%); /* 박스 전체에 그림자 넣기 */
+    z-index: 2 ;
 }
 
 /* div top IN : logo , menu , right_menu */
@@ -79,7 +80,7 @@ header> .top> .menu> ul> .left_menu > .submenu {
     box-shadow: 0 5px 10px 0 rgb(0 0 0 / 20%); /* submenu에 그림자 넣기 */
 }
 
-header> .top> .menu> ul> .left_menu:hover .submenu {
+header> .top> .menu> ul> .left_menu:hover > .submenu {
     display: block; /* block(리스트)형태로 보이게 하기 */
 }
 
@@ -213,7 +214,14 @@ h4 > span {
 }
 /* sub_banner end */
 
-/* gallery start 미완성 ..... */
+/* gallery start */
+.gallery > h3 {
+    margin-top: 5%;
+    text-align: center;
+    color: dimgray;
+    font-size: 30px ;
+    height: 100px;
+}
 
 .gallery > .g_box {
     height: 2400px ;
@@ -221,10 +229,47 @@ h4 > span {
 }
 
 .gallery > .g_box > ul {
+    z-index: 1 ; /* ul리스트 각 칸을 absolute 지정 -> header 메뉴바가 사진 뒤로 가려짐 -> z-index로 header를 우선순위 높게 설정 */
     display: flex;
     flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
+}
+
+.gallery > .g_box > ul > li {
+    position: relative ;
+}
+
+
+.gallery > .g_box > ul > li > a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+.gallery > .g_box > ul > li:hover > a > div {
+    display: block;
+}
+
+.gallery > .g_box > ul > li > a > div {
+    display: none ;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    text-align: center;
+    opacity: 1; /* 불투명도 설정 : 0 ~ 1 */
+}
+
+.gallery > .g_box > ul > li > a> div > p {
+    font-size: 18px;
+    color: #fff;
+    position: relative ;
+    top: 50%; /* div의 제일 위에서 50% 지점의 위치 (position: relative 줘야 가능) */
+}
+
+
+.gallery > .g_box > ul > li:nth-of-type(6n) {
+    margin-top: -25% ; /* 6의 배수 번째에 있는 li칸 margin-top 지정 */
 }
 
 .gallery > .g_box > ul > .big_box {
@@ -233,16 +278,90 @@ h4 > span {
     height: 800px ;
 }
 
-.gallery > .g_box > ul > .big_box > img{
-    width: 800px ;
-    height: 800px ;
-    object-fit: fill;
-}
-
-.gallery > .g_box > ul > .normal_box > img{
+.gallery > .g_box > ul > .normal_box {
+    display: flex ;
     width: 400px ;
     height: 400px ;
-    object-fit: fill;
+}
+
+.gallery > .g_box > ul > .big_box > img {
+    width: 800px ;
+    height: 800px ;
+}
+
+.gallery > .g_box > ul > .normal_box > img {
+    width: 400px ;
+    height: 400px ;
 }
 
 /* gallery end */
+
+/* footer strat*/
+
+.f_top {
+    padding-top: 40px;
+    height: 250px ;
+    background-color: rgb(85, 85, 85);
+    text-align: center;
+}
+
+.f_top > p {
+    color: white ;
+    font-size: 18px;
+}
+
+.f_top > h1 {
+    color: white ;
+}
+
+.f_top > div > ul > li {
+    display: inline-block ; /* 블럭 형태로 한 라인에 표시되게 설정 */
+    border-radius: 10%;  /* 둥근 모서리 지정 */
+    border: solid white 1px ;
+    align-content: center;
+    font-size: 18px;
+    width: 180px ;
+    height: 50px ;
+    line-height: 50px ;
+    margin: 10px 0 0 10px ; /* margin top , left 10px 설정*/
+}
+
+.f_top > div > ul > li > a{
+    color: white ;
+}
+
+.f_bottom {
+    text-align: center;
+    background-color: rgb(51, 51, 51);
+    height: 350px ;
+    padding-top: 50px ;
+}
+
+.f_bottom > .sns > ul {
+    display: flex;
+    justify-content: center;
+}
+
+.f_bottom > .sns > ul > li {
+    width: 50px ;
+    height: 50px ;
+    margin: 10px ;
+    border-radius: 50%;
+    background-color: rgb(85, 85, 85);
+    line-height: 50px;
+}
+
+.f_bottom > .f_b_menu {
+    padding: 10px ;
+}
+
+.f_bottom > div > a {
+    margin-right: 10px;
+    color: rgb(164, 164, 164);
+}
+
+.f_bottom > p , h3 {
+    color: rgb(164, 164, 164);
+}
+
+/* footer end */
