@@ -13,6 +13,15 @@
     <header>
         <!-- 메뉴바 전체 div : top -->
         <div class="top">
+            <input type="radio" name="open_close" id="open_search_bar">
+            <input type="radio" name="open_close" id="close_search_bar">
+            <div class="search_bar">
+                <input type="search" placeholder="제품명을 입력해주세요.">
+                <img src="images/icon_search.png">
+                <label for="close_search_bar">
+                    <span>×</span>
+                </label>
+            </div>
             <!-- div : logo -->
             <div class="logo">
                 <a href="https://www.hoopcity.co.kr/" alt="훕시티 원래 홈으로 가기" target="_blanc">
@@ -218,14 +227,9 @@
                         </a>
                     </li>
                     <li class="r_menu">
-                        <a href="#" alt="search">
+                        <label for="open_search_bar">
                             <img src="images/search.JPG">
-                        </a>
-                        <div class="search_bar">
-                            <input type="search" placeholder="제품명을 입력해주세요.">
-                            <img src="images/icon_search.png">
-                            <span>X</span>
-                        </div>
+                        </label>
                     </li>
                 </ul>
             </div>

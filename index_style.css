@@ -3,7 +3,7 @@
 @import url('http://fonts.googleapis.com/earlyaccess/lato.css');
 @import url('http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
 
-/* css reset start */
+/*--------------------- css reset start ---------------------*/
 *{
     margin: 0 ;
     padding: 0 ;
@@ -12,7 +12,7 @@
     color: #222328 ;
     text-decoration : none;
 }
-/* css reset end */
+/*--------------------- css reset end ---------------------*/
 
 body {
     width: 1600px ; /* body 전체 width 1600px */
@@ -22,11 +22,13 @@ body {
     font-family: 'Noto Sans KR', 'Lato', 'Spoqa Han Sans', sans-serif;
 }
 
-/* header start */
+/*--------------------- header start ---------------------*/
 header {
+    width: 1600px;
+    min-width: 1320px ;
+    max-width: 1920px ;
     height: 100px ; /* width는 body값 상속 , height 100px */
     text-align: center ;
-    display: fixed ;
     position: fixed ; top: 0; /* 브라우저 창 제일 위에 붙은채로 위치 고정 */
     background-color: white;
     font-family: 'Spoqa Han Sans Neo', 'Noto Sans KR', 'Lato', sans-serif;
@@ -121,11 +123,27 @@ header> .top> .right_menu> ul > .r_menu > a {
     position: relative ;
 }
 
-header> .top> .right_menu> ul > .r_menu > a > img {
+header> .top> .right_menu> ul > .r_menu img {
     vertical-align: middle; /* vertical-align으로 logo img 가운데 정렬 */
 }
 
-header> .top > .right_menu> ul > .r_menu > .search_bar {
+header> .top > input[id*="search_bar"] {
+    display: none ;
+}
+
+header> .top label[for*="search_bar"] {
+    cursor: pointer;
+}
+
+header> .top > input[id="open_search_bar"]:checked ~.search_bar {
+    display: block ;
+}
+
+header> .top > input[id="close_search_bar"]:checked ~.search_bar {
+    display: none ;
+}
+
+header> .top > .search_bar {
     display: none;
     width: 1600px;
     height: 100% ;
@@ -136,9 +154,9 @@ header> .top > .right_menu> ul > .r_menu > .search_bar {
     z-index: 4;
 }
 
-header> .top > .right_menu> ul > .r_menu > .search_bar> input {
+header> .top > .search_bar> input {
     font-size: 20px ;
-    color: #37414f;
+    color: #ffffff;
     border-style: none ;
     border-bottom: solid #37414f 1px;
     background-color: transparent;
@@ -147,34 +165,22 @@ header> .top > .right_menu> ul > .r_menu > .search_bar> input {
     height: 50px ;
     margin-top: 15px;
     caret-color: oldlace;
-    z-index: 5;
 }
 
-header> .top > .right_menu> ul > .r_menu > .search_bar> input:focus {
+header> .top > .search_bar> input:focus {
     outline:none;
 }
 
-header> .top > .right_menu> ul > .r_menu > .search_bar > img {
+header> .top >  .search_bar > img {
     vertical-align: middle;
 }
 
-header> .top > .right_menu> ul > .r_menu > .search_bar > span {
+header> .top > .search_bar > label > span {
     color: white ;
     font-size: 40px;
-    font-weight: 400 ;
-    position: absolute ;
-    top : 35px ; right : 35px ;
-}
-
-header> .top > .right_menu> ul > .r_menu> a:focus ~.search_bar{
-    display: block ;
-}
-
-header> .top > .right_menu> ul > .r_menu> .search_bar:focus-visible{
-    display: block ;
-    position: absolute ;
-    left: 0; top: 0;
-    z-index: 4;
+    font-weight: 800 ;
+    position: relative ;
+    top : 12px ; left : 425px ;
 }
 
 /* 장바구니 숫자 (hoopcity 코드 가져옴) */
@@ -191,9 +197,9 @@ header> .top> .right_menu> ul > .r_menu > a > span {
     position: relative ;
     top: -50px ; left: 25px ;
 }
-/* ----------------------------------------------header end-------------------------------------------------------- */
+/*--------------------- header end ---------------------*/
 
-/* main_banner start */
+/*--------------------- main_banner start ---------------------*/
 .main_banner {
     position: relative;
     margin-top : 100px ;
@@ -278,10 +284,9 @@ header> .top> .right_menu> ul > .r_menu > a > span {
 .main_banner > input[id="slide5"]:checked ~ ul {
     transform: translateX(-6400px);
 }
+/*--------------------- main_banner end ---------------------*/
 
-/* main_banner end */
-
-/* productbox start */
+/*--------------------- productbox start ---------------------*/
 .productbox {
     margin-top: 50px ;
     display: block ; /* ul 박스와 텍스트가 한 블럭씩 차지하게 설정 */
@@ -335,15 +340,15 @@ h4 > span {
     height: 30px ;
     line-height: 30px ;
 }
-/* productbox1 end */
+/*--------------------- productbox1 end ---------------------*/
 
-/* sub_banner start */
+/*--------------------- sub_banner start ---------------------*/
 .sub_banner > img {
     width: 100% ;
 }
-/* sub_banner end */
+/*--------------------- sub_banner end ---------------------*/
 
-/* gallery start */
+/*--------------------- gallery start ---------------------*/
 .gallery > h3 {
     margin-top: 5%;
     text-align: center;
@@ -366,7 +371,6 @@ h4 > span {
 .gallery > .g_box > ul > li {
     position: relative ;
 }
-
 
 .gallery > .g_box > ul > li > a {
     position: absolute;
@@ -419,10 +423,9 @@ h4 > span {
     width: 400px ;
     height: 400px ;
 }
-/* gallery end */
+/*--------------------- gallery end ---------------------*/
 
-/* footer strat*/
-
+/*--------------------- footer strat ---------------------*/
 .f_top {
     padding-top: 40px;
     height: 250px ;
@@ -488,4 +491,4 @@ h4 > span {
 .f_bottom > p , h3 {
     color: rgb(164, 164, 164);
 }
-/* footer end */
+/*--------------------- footer end ---------------------*/
