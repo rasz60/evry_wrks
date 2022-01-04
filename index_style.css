@@ -32,13 +32,14 @@ header {
     font-family: 'Spoqa Han Sans Neo', 'Noto Sans KR', 'Lato', sans-serif;
     font-weight: 400;
     box-shadow: 0 0 3px 0 rgb(0 0 0 / 20%); /* 박스 전체에 그림자 넣기 */
-    z-index: 2 ;
+    z-index: 3 ;
 }
 
 /* div top IN : logo , menu , right_menu */
 header> .top {
     display: flex ; /* 순서대로 이어서 왼쪽 정렬 */
     width: 100% ;
+    height: 100px ;
 }
 
 /* logo : width 200px */ 
@@ -113,6 +114,7 @@ header> .top> .right_menu> ul {
 header> .top> .right_menu> ul > .r_menu {
     width: 50px ; /* 각각 메뉴 width 50px  */
     line-height: 100px ; /* 텍스트 세로 중앙 정렬을 위한 line-height 설정*/
+    overflow: hidden;
 }
 
 header> .top> .right_menu> ul > .r_menu > a {
@@ -123,6 +125,58 @@ header> .top> .right_menu> ul > .r_menu > a > img {
     vertical-align: middle; /* vertical-align으로 logo img 가운데 정렬 */
 }
 
+header> .top > .right_menu> ul > .r_menu > .search_bar {
+    display: none;
+    width: 1600px;
+    height: 100% ;
+    background-color: #20252c;
+    line-height: 100%;
+    position: absolute ;
+    left: 0; top: 0;
+    z-index: 4;
+}
+
+header> .top > .right_menu> ul > .r_menu > .search_bar> input {
+    font-size: 20px ;
+    color: #37414f;
+    border-style: none ;
+    border-bottom: solid #37414f 1px;
+    background-color: transparent;
+    line-height: 100%;
+    width: 600px ;
+    height: 50px ;
+    margin-top: 15px;
+    caret-color: oldlace;
+    z-index: 5;
+}
+
+header> .top > .right_menu> ul > .r_menu > .search_bar> input:focus {
+    outline:none;
+}
+
+header> .top > .right_menu> ul > .r_menu > .search_bar > img {
+    vertical-align: middle;
+}
+
+header> .top > .right_menu> ul > .r_menu > .search_bar > span {
+    color: white ;
+    font-size: 40px;
+    font-weight: 400 ;
+    position: absolute ;
+    top : 35px ; right : 35px ;
+}
+
+header> .top > .right_menu> ul > .r_menu> a:focus ~.search_bar{
+    display: block ;
+}
+
+header> .top > .right_menu> ul > .r_menu> .search_bar:focus-visible{
+    display: block ;
+    position: absolute ;
+    left: 0; top: 0;
+    z-index: 4;
+}
+
 /* 장바구니 숫자 (hoopcity 코드 가져옴) */
 header> .top> .right_menu> ul > .r_menu > a > span {
     display: block;
@@ -131,23 +185,100 @@ header> .top> .right_menu> ul > .r_menu > a > span {
     border-radius: 50%; /* 둥근 모양에 박스 만들기 */
     background: #99001b;
     text-align: center;
-    line-height: 22px;
+    line-height: 20px;
     font-size: 10px;
     color: #fff;
     position: relative ;
     top: -50px ; left: 25px ;
 }
-/* header end */
+/* ----------------------------------------------header end-------------------------------------------------------- */
 
 /* main_banner start */
 .main_banner {
-    /* 슬라이드 기능 넣어야함 */
+    position: relative;
     margin-top : 100px ;
+    overflow: hidden;
 }
 
-.main_banner > img {
-    width: 100% ;
+.main_banner > input[id*="slide"] {
+    display: none;
 }
+
+.main_banner > ul {
+    display: flex;
+    width: 1600px ;
+    height: 700px ;
+}
+
+.main_banner > ul > li {
+    position: relative ;
+    transition: all .5s; 
+}
+
+.main_banner > ul > li > a > img {
+    width: 1600px ;
+    height: 700px ;
+    z-index: 1;
+}
+
+.main_banner > .button > label:hover {
+    background-color: darkgrey;
+}
+
+.main_banner > input[id="slide1"]:checked ~.button>label:nth-child(1) {
+    background-color: black;
+}
+
+.main_banner > input[id="slide2"]:checked ~.button>label:nth-child(2) {
+    background-color: black;
+}
+
+.main_banner > input[id="slide3"]:checked ~.button>label:nth-child(3) {
+    background-color: black;
+}
+
+.main_banner > input[id="slide4"]:checked ~.button>label:nth-child(4) {
+    background-color: black;
+}
+
+.main_banner > input[id="slide5"]:checked ~.button>label:nth-child(5) {
+    background-color: black;
+}
+
+.button {
+    position: relative;
+    top: -680px ;
+    left: 140%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.button > label {
+    display: inline-block;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: white;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+
+.main_banner > input[id="slide2"]:checked ~ ul {
+    transform: translateX(-1600px);
+}
+
+.main_banner > input[id="slide3"]:checked ~ ul {
+    transform: translateX(-3200px);
+}
+
+.main_banner > input[id="slide4"]:checked ~ ul {
+    transform: translateX(-4800px);
+}
+
+.main_banner > input[id="slide5"]:checked ~ ul {
+    transform: translateX(-6400px);
+}
+
 /* main_banner end */
 
 /* productbox start */
@@ -243,14 +374,12 @@ h4 > span {
     height: 100%;
 }
 
-
 .gallery > .g_box > ul > li:hover > a > div {
     display: block;
 }
 
 .gallery > .g_box > ul > li > a > div {
     display: none ;
-    position: absolute;
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.5);
@@ -264,7 +393,6 @@ h4 > span {
     position: relative ;
     top: 50%; /* div의 제일 위에서 50% 지점의 위치 (position: relative 줘야 가능) */
 }
-
 
 .gallery > .g_box > ul > li:nth-of-type(6n) {
     margin-top: -25% ; /* 6의 배수 번째에 있는 li칸 margin-top 지정 */
@@ -291,7 +419,6 @@ h4 > span {
     width: 400px ;
     height: 400px ;
 }
-
 /* gallery end */
 
 /* footer strat*/
@@ -361,5 +488,4 @@ h4 > span {
 .f_bottom > p , h3 {
     color: rgb(164, 164, 164);
 }
-
 /* footer end */
