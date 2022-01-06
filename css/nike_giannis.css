@@ -1,0 +1,473 @@
+@charset "UTF-8";
+@import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
+@import url('http://fonts.googleapis.com/earlyaccess/lato.css');
+@import url('http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
+
+/*--------------------- css reset start ---------------------*/
+*{
+    margin: 0 ;
+    padding: 0 ;
+    box-sizing: border-box ;
+    list-style: none ;
+    color: #222328 ;
+    text-decoration : none;
+}
+/*--------------------- css reset end ---------------------*/
+
+body {
+    width: 1600px ; /* body 전체 width 1600px */
+    min-width: 1320px ;
+    max-width: 1920px ;
+    margin: 0 auto ; /* body 전체를 margin 설정 */
+    font-family: 'Noto Sans KR', 'Lato', 'Spoqa Han Sans', sans-serif;
+}
+
+/*--------------------- header start ---------------------*/
+header {
+    width: 1600px;
+    min-width: 1320px ;
+    max-width: 1920px ;
+    height: 100px ; /* width는 body값 상속 , height 100px */
+    text-align: center ;
+    background-color: white;
+    font-family: 'Spoqa Han Sans Neo', 'Noto Sans KR', 'Lato', sans-serif;
+    font-weight: 400;
+    box-shadow: 0 0 3px 0 rgb(0 0 0 / 20%); /* 박스 전체에 그림자 넣기 */
+    z-index: 2 ;
+}
+
+/* div top IN : logo , menu , right_menu */
+header> .top {
+    background-color: white;
+    position: fixed ; top: 0;  /* 브라우저 창 제일 위에 붙은채로 위치 고정 */
+    display: flex ; /* 순서대로 이어서 왼쪽 정렬 */
+    width: 100% ;
+    height: 100px ;
+    z-index: 2 ;
+}
+
+/* logo : width 200px */ 
+header> .top> .logo {
+    width: 200px ;
+    line-height: 100px ;
+}
+
+header> .top> .logo> a> img {
+    vertical-align: middle; /* vertical-align으로 logo img 수직 가운데 정렬 */
+}
+
+/* menu : NEW ARRIVAL ~ SALE ul 8개 */
+header> .top > .menu {
+    width: 1100px ;
+    display: flex ; /* ul list 순서대로 왼쪽 정렬 */
+    text-align: center ; /* 텍스트 가운데 정렬 */
+}
+
+header> .top> .menu> ul> .left_menu {
+    width: 100px ; /* 메뉴 한 칸당 100px 지정 */
+    font-size: 12.5px; /* font : 12px */
+    line-height: 100px ;
+    text-align: center; /* 텍스트 가운데 정렬 */ 
+}
+
+header> .top> .menu> ul> .left_menu> a {
+    line-height: 100px ;
+    position: relative ;
+}
+
+header> .top> .menu> ul> .left_menu > .submenu {
+    display: none ; /* 기본 값은 안보이게 하기 */
+    align-items: center;
+    background-color: white; /* submenu 배경색 넣기 */
+    width: 150px ; /* submenu 넓이 지정 (글씨 긴것도 다 보이게끔 크게 지정) */
+    position: relative; top: -30px; left: -25px;  /* left_menu와 submenu 중앙 맞추기 */
+    box-shadow: 0 5px 10px 0 rgb(0 0 0 / 20%); /* submenu에 그림자 넣기 */
+}
+
+header> .top> .menu> ul> .left_menu:hover > .submenu {
+    display: block;
+}
+
+header> .top> .menu> ul> .left_menu > .submenu > li {
+    height: 40px ;  /* 한 칸당 높이 40px 지정 */
+    line-height: 40px ; /* 텍스트 세로 중앙 정렬을 위한 line-height 설정*/
+    font-size: 12px; /* font : 12px */  
+}
+
+header> .top> .menu> ul> .left_menu> .submenu > li > a {
+    text-decoration-line : none; /* link 포함된 a tag 폰트 서식 없애기(밑줄) */
+}
+
+header> .top> .menu> ul> .left_menu> .submenu > li > a:hover {
+    /* submenu에 마우스 올리면 배경색 텍스트색 바뀌기 */
+    background-color: black;
+    color: white;
+}
+
+/* right_menu */
+header> .top> .right_menu {
+    display: flex ;
+    width: 300px ;
+    font-size: 12px;
+}
+
+header> .top> .right_menu> ul {
+    display: flex;   /* ul 리스트로 된 각 메뉴 한줄로 보이게 하기 */ 
+}
+
+header> .top> .right_menu> ul > .r_menu {
+    width: 50px ; /* 각각 메뉴 width 50px  */
+    line-height: 100px ; /* 텍스트 세로 중앙 정렬을 위한 line-height 설정*/
+    overflow: hidden;
+}
+
+header> .top> .right_menu> ul > .r_menu > a {
+    position: relative ;
+}
+
+header> .top> .right_menu> ul > .r_menu img {
+    vertical-align: middle; /* vertical-align으로 logo img 가운데 정렬 */
+}
+
+header> .top > input[id*="search_bar"] {
+    display: none ;
+}
+
+header> .top label[for*="search_bar"] {
+    cursor: pointer;
+}
+
+header> .top > input[id="open_search_bar"]:checked ~.search_bar {
+    display: block ;
+}
+
+header> .top > input[id="close_search_bar"]:checked ~.search_bar {
+    display: none ;
+}
+
+header> .top > .search_bar {
+    display: none;
+    width: 1600px;
+    height: 100% ;
+    background-color: #20252c;
+    line-height: 100%;
+    position: absolute ;
+    left: 0; top: 0;
+    z-index: 4;
+}
+
+header> .top > .search_bar> input {
+    font-size: 20px ;
+    color: #ffffff;
+    border-style: none ;
+    border-bottom: solid #37414f 1px;
+    background-color: transparent;
+    line-height: 100%;
+    width: 600px ;
+    height: 50px ;
+    margin-top: 15px;
+    caret-color: oldlace;
+}
+
+header> .top > .search_bar> input:focus {
+    outline:none;
+}
+
+header> .top >  .search_bar > img {
+    vertical-align: middle;
+}
+
+header> .top > .search_bar > span {
+    color: white ;
+    font-size: 40px;
+    font-weight: 800 ;
+    position: relative ;
+    top : 12px ; left : 425px ;
+}
+
+/* 장바구니 숫자 (hoopcity 코드 가져옴) */
+header> .top> .right_menu> ul > .r_menu > a > span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* 둥근 모양에 박스 만들기 */
+    background: #99001b;
+    text-align: center;
+    line-height: 20px;
+    font-size: 10px;
+    color: #fff;
+    position: relative ;
+    top: -50px ; left: 25px ;
+}
+/*--------------------- header end ---------------------*/
+
+/*--------------------- title_block start ---------------------*/
+#nike_giannis {
+    margin: 100px 0;
+    text-align: center;
+    display: block;
+    width: 100% ;
+    height: 100% ;
+}
+
+#nike_giannis> #title_block > #title {
+    display: block;
+}
+
+#nike_giannis> #title_block > #title > h2 {
+    font-size: 40px ;
+    font-weight: 600 ;
+}
+
+#nike_giannis> #title_block > #title > ul {
+    display: flex ;
+    justify-content: center;
+    width: 100% ;
+    line-height: 50px ;
+    height: 50px ;
+    font-size: 16px ;
+    color: #a1a1a1;
+}
+
+#nike_giannis> #title_block > #title > ul > li {
+    color: #a1a1a1;
+}
+
+#nike_giannis> #title_block > #title > ul > li:last-child {
+    color: black;
+}
+
+#nike_giannis> #title_block > #title > ul > li > a {
+    font-size: 16px ;
+    color: #a1a1a1;
+}
+
+#nike_giannis> #title_block > #title > ul > li > a ~.submenu {
+    display: none;
+    position: relative ;
+    top: -5px ; left: -10px ;
+    border: solid black 1px;
+    background-color: #fff;
+}
+
+#nike_giannis> #title_block > #title > ul > li > a > .button {
+    transform: rotate(180deg);
+    border: solid #a1a1a1 1px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* 둥근 모양에 박스 만들기 */
+    background: white;
+    text-align: center;
+    line-height: 20px;
+    font-size: 10px;
+    color: #a1a1a1;
+}
+
+#nike_giannis> #title_block > #title > ul > li:hover  a>.button {
+    transform: rotate(360deg);
+}
+
+#nike_giannis> #title_block > #title > ul > li:hover >.submenu {
+    display: block;
+}
+
+/*--------------------- title_block end ---------------------*/
+
+
+/*--------------------- productbox start ---------------------*/
+#nike_giannis> #productbox {
+    display: flex;
+    width: 100% ;
+}
+
+#nike_giannis> #productbox > #side_menu {
+    text-align: left;
+    padding: 30px ;
+    width: 20% ;
+}
+
+#nike_giannis> #productbox > #side_menu > .main {
+    width: 100% ;
+    border: solid #a1a1a1 1px;
+    border-top: solid black 3px;
+    margin: 5px;
+    padding: 20px ;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    cursor: pointer;
+}
+
+#nike_giannis> #productbox > #side_menu > .main > .submenu {
+    width: 100% ;
+    color: black;
+    line-height: 100%;
+    cursor: pointer;
+}
+
+#nike_giannis> #productbox > #side_menu .main > li:nth-child(1) {
+    width: 90% ;
+    color: black;
+    margin-bottom: 20px;
+}
+
+#nike_giannis> #productbox > #side_menu .main > li:nth-child(2) {
+    width: 10% ;
+    font-size: 35px;
+    color: black;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+#nike_giannis> #productbox > #side_menu > .main:hover > li >.submenu{
+    display: block;
+}
+
+#nike_giannis> #productbox > #side_menu > .main:hover >li:nth-child(2){
+    display: none;
+}
+
+#nike_giannis> #productbox > #side_menu > .main:hover >li:nth-child(3){
+    top: -10px;
+    display: block;
+}
+
+#nike_giannis> #productbox > #side_menu > .main > li:nth-child(3) {
+    display: none;
+    position: relative;
+    top: -150px; right: 0px;
+    font-size: 50px;
+    color: black;
+    z-index: 1;
+}
+
+#nike_giannis> #productbox > #side_menu > .main > li > .submenu {
+    margin-top: 0px;
+    border-top: 0;
+    display: none;
+    align-items: center;
+}
+
+#nike_giannis> #productbox > #side_menu > .main > li > .submenu > li {
+    color: #636161;
+    padding: 10px ;
+}
+
+
+#nike_giannis> #productbox > #product {
+    width: 80% ;
+}
+
+#nike_giannis> #productbox > #product > #product_text {
+    margin-top: 70px;
+    font-size: 14px ;
+    text-align: right;
+}
+
+#nike_giannis> #productbox > #product > #product_text > a:nth-child(1){
+    display: flex ;
+}
+
+#nike_giannis> #productbox > #product > #product_text > a{
+    margin-right: 20px;
+}
+
+
+#nike_giannis> #productbox > #product > ul {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#nike_giannis> #productbox > #product > ul > li {
+    width: 25% ;
+}
+
+#nike_giannis> #productbox > #product > ul > li > a > .imgbox > img {
+    padding: 20px ;
+    width: 100% ;
+}
+
+#nike_giannis> #productbox > #product > ul > li  h4, small {
+    color: dimgray; /* h4(상품 이름) 색상 지정 */
+}
+
+
+#nike_giannis> #productbox > #product > ul > li > .moneybox > h4 > span {
+    color: darkred;
+}
+
+/*--------------------- productbox1 end ---------------------*/
+
+/*--------------------- footer strat ---------------------*/
+footer {
+    display: block;
+}
+.f_top {
+    padding-top: 40px;
+    height: 250px ;
+    background-color: rgb(85, 85, 85);
+    text-align: center;
+}
+
+.f_top > p {
+    color: white ;
+    font-size: 18px;
+}
+
+.f_top > h1 {
+    color: white ;
+}
+
+.f_top > div > ul > li {
+    display: inline-block ; /* 블럭 형태로 한 라인에 표시되게 설정 */
+    border-radius: 10%;  /* 둥근 모서리 지정 */
+    border: solid white 1px ;
+    align-content: center;
+    font-size: 14px;
+    width: 180px ;
+    height: 50px ;
+    line-height: 50px ;
+    margin: 10px 0 0 10px ; /* margin top , left 10px 설정*/
+}
+
+.f_top > div > ul > li > a{
+    color: white ;
+}
+
+.f_bottom {
+    text-align: center;
+    background-color: rgb(51, 51, 51);
+    height: 350px ;
+    padding-top: 50px ;
+}
+
+.f_bottom > .sns > ul {
+    display: flex;
+    justify-content: center;
+}
+
+.f_bottom > .sns > ul > li {
+    width: 50px ;
+    height: 50px ;
+    margin: 10px ;
+    border-radius: 50%;
+    background-color: rgb(85, 85, 85);
+    line-height: 55px;
+}
+
+.f_bottom > .f_b_menu {
+    padding: 10px ;
+}
+
+.f_bottom > div > a {
+    margin-right: 10px;
+    color: rgb(164, 164, 164);
+}
+
+.f_bottom > p , h3 {
+    color: rgb(164, 164, 164);
+}
+/*--------------------- footer end ---------------------*/
