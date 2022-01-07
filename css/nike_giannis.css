@@ -29,11 +29,12 @@ header {
     max-width: 1920px ;
     height: 100px ; /* width는 body값 상속 , height 100px */
     text-align: center ;
+    position: fixed ; top: 0; /* 브라우저 창 제일 위에 붙은채로 위치 고정 */
     background-color: white;
     font-family: 'Spoqa Han Sans Neo', 'Noto Sans KR', 'Lato', sans-serif;
     font-weight: 400;
     box-shadow: 0 0 3px 0 rgb(0 0 0 / 20%); /* 박스 전체에 그림자 넣기 */
-    z-index: 2 ;
+    z-index: 3 ;
 }
 
 /* div top IN : logo , menu , right_menu */
@@ -119,6 +120,7 @@ header> .top> .right_menu> ul > .r_menu {
     width: 50px ; /* 각각 메뉴 width 50px  */
     line-height: 100px ; /* 텍스트 세로 중앙 정렬을 위한 line-height 설정*/
     overflow: hidden;
+    cursor: pointer;
 }
 
 header> .top> .right_menu> ul > .r_menu > a {
@@ -175,6 +177,7 @@ header> .top > .search_bar> input:focus {
 
 header> .top >  .search_bar > img {
     vertical-align: middle;
+    cursor: pointer;
 }
 
 header> .top > .search_bar > span {
@@ -183,6 +186,7 @@ header> .top > .search_bar > span {
     font-weight: 800 ;
     position: relative ;
     top : 12px ; left : 425px ;
+    cursor: pointer;
 }
 
 /* 장바구니 숫자 (hoopcity 코드 가져옴) */
@@ -203,7 +207,7 @@ header> .top> .right_menu> ul > .r_menu > a > span {
 
 /*--------------------- title_block start ---------------------*/
 #nike_giannis {
-    margin: 100px 0;
+    margin: 250px 0;
     text-align: center;
     display: block;
     width: 100% ;
@@ -242,7 +246,7 @@ header> .top> .right_menu> ul > .r_menu > a > span {
     color: #a1a1a1;
 }
 
-#nike_giannis> #title_block > #title > ul > li > a ~.submenu {
+#nike_giannis> #title_block > #title > ul > li > a ~.title_submenu {
     display: none;
     position: relative ;
     top: -5px ; left: -10px ;
@@ -268,7 +272,7 @@ header> .top> .right_menu> ul > .r_menu > a > span {
     transform: rotate(360deg);
 }
 
-#nike_giannis> #title_block > #title > ul > li:hover >.submenu {
+#nike_giannis> #title_block > #title > ul > li:hover >.title_submenu {
     display: block;
 }
 
@@ -287,7 +291,7 @@ header> .top> .right_menu> ul > .r_menu > a > span {
     width: 20% ;
 }
 
-#nike_giannis> #productbox > #side_menu > .main {
+#nike_giannis> #productbox > #side_menu > .side_main {
     width: 100% ;
     border: solid #a1a1a1 1px;
     border-top: solid black 3px;
@@ -299,58 +303,35 @@ header> .top> .right_menu> ul > .r_menu > a > span {
     cursor: pointer;
 }
 
-#nike_giannis> #productbox > #side_menu > .main > .submenu {
+#nike_giannis> #productbox > #side_menu > .side_main > li > .side_submenu {
     width: 100% ;
     color: black;
     line-height: 100%;
     cursor: pointer;
 }
 
-#nike_giannis> #productbox > #side_menu .main > li:nth-child(1) {
+#nike_giannis> #productbox > #side_menu > .side_main > li:nth-child(1) {
     width: 90% ;
     color: black;
     margin-bottom: 20px;
 }
 
-#nike_giannis> #productbox > #side_menu .main > li:nth-child(2) {
+#nike_giannis> #productbox > #side_menu > .side_main > li:nth-child(2) {
     width: 10% ;
     font-size: 35px;
     color: black;
     margin-bottom: 20px;
-    position: relative;
     z-index: 1;
 }
 
-#nike_giannis> #productbox > #side_menu > .main:hover > li >.submenu{
-    display: block;
-}
-
-#nike_giannis> #productbox > #side_menu > .main:hover >li:nth-child(2){
-    display: none;
-}
-
-#nike_giannis> #productbox > #side_menu > .main:hover >li:nth-child(3){
-    top: -10px;
-    display: block;
-}
-
-#nike_giannis> #productbox > #side_menu > .main > li:nth-child(3) {
-    display: none;
-    position: relative;
-    top: -150px; right: 0px;
-    font-size: 50px;
-    color: black;
-    z-index: 1;
-}
-
-#nike_giannis> #productbox > #side_menu > .main > li > .submenu {
+#nike_giannis> #productbox > #side_menu > .side_main > li > .side_submenu {
     margin-top: 0px;
     border-top: 0;
     display: none;
     align-items: center;
 }
 
-#nike_giannis> #productbox > #side_menu > .main > li > .submenu > li {
+#nike_giannis> #productbox > #side_menu > .side_main > li > .side_submenu > li {
     color: #636161;
     padding: 10px ;
 }

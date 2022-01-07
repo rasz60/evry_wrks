@@ -29,11 +29,12 @@ header {
     max-width: 1920px ;
     height: 100px ; /* width는 body값 상속 , height 100px */
     text-align: center ;
+    position: fixed ; top: 0; /* 브라우저 창 제일 위에 붙은채로 위치 고정 */
     background-color: white;
     font-family: 'Spoqa Han Sans Neo', 'Noto Sans KR', 'Lato', sans-serif;
     font-weight: 400;
     box-shadow: 0 0 3px 0 rgb(0 0 0 / 20%); /* 박스 전체에 그림자 넣기 */
-    z-index: 2 ;
+    z-index: 3 ;
 }
 
 /* div top IN : logo , menu , right_menu */
@@ -193,7 +194,7 @@ header> .top> .right_menu> ul > .r_menu > a > span {
 
 /*--------------------- title_block start ---------------------*/
 #brand_nike {
-    margin: 100px 0;
+    margin: 250px 0;
     text-align: center;
     display: block;
     width: 100% ;
