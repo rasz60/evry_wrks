@@ -1,0 +1,412 @@
+@charset "UTF-8";
+@import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
+@import url('http://fonts.googleapis.com/earlyaccess/lato.css');
+@import url('http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+* {
+    padding: 0 ;
+    margin: 0 auto;
+    text-align: center;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', 'Lato', 'Spoqa Han Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap ;
+    min-width: 1200px ;
+    max-width: 2000px ;
+    min-height: 3200px ;
+    max-height: 4000px ;
+    width: 100% ;
+    height: 100% ;
+}
+
+/*================================= header START =================================*/
+header {
+    display: flex ;
+    align-items: center;
+    flex-wrap: nowrap;
+    position: fixed ; top: 0;
+    background-color: rgb(12, 12, 12);
+    width: 100% ;
+    height: 3% ;
+    min-width: 1200px ;
+    max-width: 2000px ;
+    min-height: 100px ;
+    z-index: 3;
+    opacity: 0.9;
+}
+
+
+/*------ header_logo ------*/
+header > #logo {
+    display: flex ;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+/*------ header_logo ------*/
+
+/*------ header_search ------*/
+header > #search {
+    display: flex;
+    color: white ; 
+    width: 50% ;
+}
+
+header > #search > input {
+    margin-right: 0;
+    margin-left: 30%;
+    text-align: left;
+    font-size: 15px ;
+    width: 50% ;
+    min-height: 40px ;
+    border: none;
+    color: white;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(228, 225, 225);
+    
+}
+
+header > #search > input:focus {
+    outline-style: none;
+}
+
+header > #search > input::placeholder {
+    color: rgba(223, 215, 215, 0.932) ;
+    font-style: italic;
+    font-weight: 100;
+}
+header > #search > a {
+    margin: 0 0;
+}
+
+header > #search > a > img {
+    cursor: pointer;
+    transition: transform 2s;
+}
+
+header > #search > a> img:hover {
+    transform: rotate(360deg);
+}
+/*------ header_search ------*/
+
+/*------ header_menu ------*/
+header > #menu {
+    width: 40% ;
+    font-size: 1.7em ;
+}
+
+header > #menu > ul {
+    display: flex;
+    width: 70% ;
+}
+
+header > #menu > ul > li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.897);
+    width: 25% ;
+    height: 100% ;
+    min-height: 100px ;
+    border: 0 0.1 0 0.1 solid rgb(219, 215, 215) ;
+    transition: font-size 1s;
+    cursor: pointer;
+
+}
+
+header > #menu > ul > li:hover {
+    font-size : 35px;
+}
+
+header > #menu > ul > li > a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Shadows Into Light', cursive; font-weight: 700;
+}
+
+/*------ header_menu ------*/
+/*================================= header END =================================*/
+
+/*================================= .box SETTING =================================*/
+.box {
+    display: flex ;
+    flex-wrap: nowrap;
+    width: 100% ;
+    height: 500px ;
+}
+/*================================= .box SETTING =================================*/
+
+/*================================= img_slide START =================================*/
+.box:nth-of-type(1) {
+    margin-top: 100px;
+    height: 625px;
+}
+
+/*------ slide_container ------*/
+.box > #container {
+    background-color: transparent;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+/*------ slide_container ------*/
+
+/*------ slideBox ------*/
+.box > #container > #img_slide {
+    display: flex;
+    position: absolute;
+    width: 400%;
+    height: 100%;
+    transition : transform 0.4s ease-in-out;
+}
+
+.box > #container > #img_slide > li > a > img {
+    width: 100%; 
+    height: 100%;
+    cursor: pointer;
+}
+/*------ slideBox ------*/
+
+/*------ slideButton ------*/
+.box:nth-child(2) > span {
+    position: absolute;
+    top: 9.5%;
+    margin: 0 1.5%;
+    color: white;
+    font-size: 7em;
+    opacity: 0.4;    
+    transition: transform 300;
+}
+
+.box:nth-child(2) > span:nth-child(3) {
+    right: 0;
+}
+
+.box:nth-child(2) > span:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.box:nth-child(2) > .btn2 {
+    display: inline-block;
+    position: absolute;
+    top: 21%;
+    width: 22%;
+    height: 8px;
+    opacity: 0.6;
+    transition: transform 300;
+    cursor: pointer;
+}
+
+.box:nth-child(2) > button:nth-of-type(1) {
+    left: 3%;
+}
+
+.box:nth-child(2) > button:nth-of-type(2) {
+    left: 27%;
+}
+
+.box:nth-child(2) > button:nth-of-type(3) {
+    left: 51%;
+}
+
+.box:nth-child(2) > button:nth-of-type(4) {
+    left: 75%;
+}
+
+.box:nth-child(2) > button:hover {
+    opacity: 0.9;
+}
+/*------ slideButton ------*/
+/*================================= img_slide END =================================*/
+
+
+/*================================= .tabmenu START =================================*/
+.tabmenu {
+    width: 100%;
+    height: 3%;
+    min-width: 1200px;
+    max-width: 2000px;
+    min-height: 100px;
+    position: relative;
+}
+
+.tabmenu ul li {
+    width: 25%; /* 각 메뉴 별 사이즈 */
+    float: left; /* 메뉴 왼쪽 정렬 */
+    text-align: center;
+}
+
+.tabmenu input {
+    display: none; /* radio 버튼 숨기기 */
+}
+
+.tabmenu input:checked ~ label {
+    /* checked 된 tabmenu만 적용 */
+    background: rgb(48, 48, 51);
+    color: white;
+}
+
+input:checked ~ .tabCon {
+    /* checked 된 tabCon만 적용 */
+    display: block;
+    background: rgb(48, 48, 51);
+}
+
+.tabmenu label {
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    background: rgb(192, 191, 191);
+}
+
+.tabCon {
+    width: 100%;
+    height: 460px;
+    min-width: 1200px;
+    max-width: 2000px;
+    display: none;
+    position: absolute;
+    left: 0;
+}
+
+.tabmenu .tabCon img {
+    width: 15%;
+    height: auto;
+    margin: 50px;
+}
+/*================================= .tabmenu END =================================*/
+
+
+/*================================= .video_box START =================================*/
+.box > #video_box {
+    width: 100% ;
+    height: 100% ;
+    padding: 0 ;
+}
+
+#video_box > iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+}
+/*================================= .video_box END =================================*/
+
+
+/*================================= #event STRAT =================================*/
+.event {
+    width: 100%;
+    height: 3%;
+    min-width: 1200px;
+    max-width: 2000px;
+    min-height: 100px;
+    position: relative;
+}
+
+.event ul li {
+    width: 50%; /* 각 메뉴 별 사이즈 */
+    float: left; /* 메뉴 왼쪽 정렬 */
+    text-align: center;
+}
+
+.event input {
+    display: none; /* radio 버튼 숨기기 */
+}
+
+.event input:checked ~ label {
+    background: rgb(48, 48, 51);
+    color: white;
+}
+
+.event label {
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    background: rgb(192, 191, 191);
+}
+/*================================= #event END =================================*/
+
+
+/*================================= #img_box START =================================*/
+.box > #img_box {
+    border: 1px solid red;
+    width: 100% ;
+    height: 100%;
+}
+/*================================= #img_box END =================================*/
+
+/*================================= footer START =================================*/
+footer {
+    width: 100% ;
+    height: 100% ;
+    /* border: 1px solid red; */
+    flex-wrap: nowrap;
+    width: 100% ;
+    height: 18.875% ;
+    
+}
+
+footer > .top{
+    width: 100%;
+    background-color: rgb(12, 12, 12);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+footer > .top > .footer_menu > h1{
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.897);
+    text-align: left;
+}
+
+footer > .top > .footer_menu > ul{
+    margin-top: 5px;
+    /* border: solid red 1px; */
+    width: 100%;
+}
+
+footer > .top > .footer_menu > ul > li{
+    /* border: solid yellow 1px; */
+    text-align: left;
+    margin-top: 1px;
+}
+
+footer > .top > .footer_menu > ul > li > a{
+    color: rgba(255, 255, 255, 0.897);
+    font-size: 16px;
+    /* border: solid red 1px; */
+}
+
+footer > .mid{
+    width: 100%;
+    background-color: rgb(12, 12, 12);
+    padding: 20px;
+    border-top: 3px solid gray;
+}
+
+footer > .mid > .des > h1{
+    color: rgba(255, 255, 255, 0.897);
+    font-size: 16px;
+    margin: 3px 0 ;
+    font-weight: 400;
+}
+
+footer > .bottom{
+    background-color: rgb(12, 12, 12);
+    border-top: 3px solid gray;
+
+}
+/*================================= footer END =================================*/

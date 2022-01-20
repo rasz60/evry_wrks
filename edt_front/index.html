@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/index.css" type="text/css">
+    <title>EDT</title>
+</head>
+
+<body>
+    <header id="header">
+        <div id="logo">
+            <a href="index.html">
+                <img src="resources/img/logo-basic.png">
+            </a>
+        </div>
+
+        <div id="search">
+            <input type="search" name="search" autofocus autocomplete="off" onfocus="this.placeholder=''" onblur="this.placeholder='brand, name, model . . .'">
+            <a href="#">
+                <img src="resources/img/search_btn2.png">
+            </a>
+        </div>
+        <div id="menu">
+            <ul>
+                <li>
+                    <a href="draw.html">DRAW</a>
+                </li>
+                <li>
+                    <a href="products.html">SHOP</a>
+                </li>
+                <li>
+                    <a href="#">JOIN</a>
+                </li>
+                <li>
+                    <a href="#">LOGIN</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="box">
+        <div id="container">
+            <ul id="img_slide" onmouseover="stopSlide()" onmouseout="autoSlide()">
+                <li class="slides">
+                    <a href="#">
+                        <img src="resources/img/slide1.jpg">
+                    </a>
+                </li>
+                <li class="slides">
+                    <a href="#">
+                        <img src="resources/img/slide2.jpg">
+                    </a>
+                </li>
+                <li class="slides">
+                    <a href="#">
+                        <img src="resources/img/slide3.jpg">
+                    </a>
+                </li>
+                <li class="slides">
+                    <a href="#">
+                        <img src="resources/img/slide4.jpg">
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <span id="prev" onclick="prev_btn()" title="click!"><</span>
+        <span id="next" onclick="next_btn()" title="click!">></span>
+
+        <button class="btn2" onmouseover="moveSlide(1);" title="img1"></button>
+        <button class="btn2" onmouseover="moveSlide(2);" title="img2"></button>
+        <button class="btn2" onmouseover="moveSlide(3);" title="img3"></button>
+        <button class="btn2" onmouseover="moveSlide(4);" title="img4"></button>
+
+        <script>
+            var slideBox = document.getElementById('img_slide');
+            var slideIndex = 1;
+            var slideCount = document.querySelectorAll('.slides').length;
+
+            /*이미지 슬라이드 이동 함수*/
+            function moveSlide(num) {
+                switch(num) {
+                    case 1 :
+                        slideBox.style.transform = 'translate(0%)';
+                        slideIndex = 1;
+                        break;
+                    case 2 :
+                        slideBox.style.transform = 'translate(-25%)';
+                        slideIndex = 2;
+                        break;
+                    case 3 :
+                        slideBox.style.transform = 'translate(-50%)';
+                        slideIndex = 3;
+                        break;
+                    case 4 :
+                        slideBox.style.transform = 'translate(-75%)';
+                        slideIndex = 4;
+                        break;                    
+                    default : 
+                        moveSlide(1);
+                        break;
+                }
+                resetSlideTime();
+            };
+
+            /* prev & next btn 눌렀을 때 함수 */
+            function prev_btn() {
+                if ( slideIndex == 1 ) {
+                    slideIndex = slideCount;
+                } else {
+                    slideIndex--;
+                }
+                moveSlide(slideIndex);
+            };
+
+            function next_btn() {
+                if ( slideIndex == slideCount ) {
+                    slideIndex = 1;
+                } else {
+                    slideIndex++;
+                }
+                moveSlide(slideIndex);
+            };
+
+            /* 3.5초에 한 장씩 자동으로 이동하는 함수 */
+            var slideTime = 0;
+            function autoSlide() {
+                slideTime = setInterval(function slide() {
+                                    if ( slideIndex < slideCount + 1 ) {
+                                        moveSlide(++slideIndex);
+                                    } else {
+                                        slideIndex = 1;
+                                        moveSlide(slideIndex);
+                                    };                
+                                    }, 3500);
+            };
+
+            /* 슬라이드가 정지하는 메서드 */
+            function stopSlide() {
+                clearInterval(slideTime);
+            }
+
+            /* 슬라이드를 정지했다가 다시 3.5초 후 자동 이동하는 함수 */
+            function resetSlideTime() {
+                stopSlide();
+                autoSlide();
+            };
+
+            /* 페이지 접속하면 autoSlide() 실행 */
+            autoSlide();
+        </script>
+    </section>
+
+    <section class="box">
+        <div class="tabmenu">
+            <ul>    
+                <li id="tab1" class="btnCon"> 
+                    <input type="radio" checked name="tabmenu" id="tabmenu1">
+                    <label for="tabmenu1">menu1</label>
+                        <div class="tabCon" >
+                            <a href="#"><img src="resources/img/menu1.png" alt="menu1이미지"></a>
+                            <a href="#"><img src="resources/img/menu1.png" alt="menu1이미지"></a>
+                            <a href="#"><img src="resources/img/menu1.png" alt="menu1이미지"></a>
+                            <a href="#"><img src="resources/img/menu1.png" alt="menu1이미지"></a>
+                        </div>           
+                </li>
+                <li id="tab2" class="btnCon">
+                    <input type="radio" name="tabmenu" id="tabmenu2">
+                    <label for="tabmenu2">menu2</label>
+                    <div class="tabCon" >
+                        <a href="#"><img src="resources/img/menu2.png" alt="menu2이미지"></a>
+                        <a href="#"><img src="resources/img/menu2.png" alt="menu2이미지"></a>
+                        <a href="#"><img src="resources/img/menu2.png" alt="menu2이미지"></a>
+                        <a href="#"><img src="resources/img/menu2.png" alt="menu2이미지"></a>
+                    </div>           
+                </li>    
+                <li id="tab3" class="btnCon">
+                    <input type="radio" name="tabmenu" id="tabmenu3">
+                    <label for="tabmenu3">menu3</label>
+                    <div class="tabCon" >내용3</div>        
+                </li>
+                <li id="tab4" class="btnCon">
+                    <input type="radio" name="tabmenu" id="tabmenu4">
+                    <label for="tabmenu4">menu4</label>
+                    <div class="tabCon" >내용4</div>        
+                </li>
+            </ul>
+            </div>
+    </section>
+
+    <section class="box">
+        <div id="video_box">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/3KObylIFm-c?rel=0&amp;autoplay=1&amp;mute=1&amp;vq=hd720&amp;playlist=3KObylIFm-c&loop=1&modestbranding=1;" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section class="box">
+        <div id="event">
+            <div class="event">
+                <ul>
+                    <li id="tab5" class="btnCon2">
+                        <input type="radio" checked name="evtmenu" id="evtmenu1">
+                        <label for="evtmenu1">menu3</label>
+                        <div class="tabCon">내용3</div>        
+                    </li>
+                    <li id="tab6" class="btnCon2">
+                        <input type="radio" name="evtmenu" id="evtmenu2">
+                        <label for="evtmenu2">menu4</label>
+                        <div class="tabCon">내용4</div>        
+                    </li>
+                </ul>
+            </div> 
+        </div> 
+    </section>
+
+    <section class="box">
+        <div id="img_box">
+            <a href="#">
+                <img src="resources/img/002.png" alt="">
+            </a>
+
+    </section>
+
+    <footer>
+        <div class="top">
+            <div class="footer_menu">
+                <h1>PRODUCTS</h1>
+                <ul>
+                    <li><a href="#">신상품</a></li>
+                    <li><a href="#">인기상품</a></li>
+                    <li><a href="#">할인상품</a></li>
+                    <li><a href="#">랜덤박스</a></li>
+                    <li><a href="#">DRAW</a></li>
+                </ul>
+            </div>
+            <div class="footer_menu">
+                <h1>BRAND</h1>
+                <ul>
+                    <li><a href="#">JORDAN</a></li>
+                    <li><a href="#">NIKE</a></li>
+                    <li><a href="#">ADIDAS</a></li>
+                    <li><a href="#">SUPREME</a></li>
+                    <li><a href="#">BALENCIAGA</a></li>
+                </ul>
+            </div>
+            <div class="footer_menu">
+                <h1>COMPANY</h1>
+                <ul>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">인재채용</a></li>
+                    <li><a href="#">제휴제안</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mid">
+            <div class="des">
+                <h1>COMPANY : edt# </h1>
+                <h1>COMPANY_REGNO : [777777777] NETWORK_REGNO 7777-7777-7777 [사업자정보확인]</h1>
+                <h1>TEL: 010-6246-2257 ADDRESS : Seoul,Republic of Korea, Earth</h1>
+                <h1>edt_shop@gmail.com</h1>
+                <h1>Bank info : 우리은행 77777777777777 : edt </h1>
+                <h1>CS center : 070-7777-7777 AM10:00 ~ PM5:00 (점심시간 PM1:00~2:00) ( WEEKEND/HOLIDAY OFF )</h1>
+                <h1>CEO | DESIGN | MACKETING | WEB | ENGINE</h1>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="logo_name">
+                <img src="resources/img/logo-basic_bold.png" alt="NOTYOURBUSINES">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
