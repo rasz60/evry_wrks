@@ -210,6 +210,16 @@ section {
     border-bottom: 1px solid rgb(212, 212, 212);
 }
 
+#detail > #productDesc > #p_size > div:nth-child(2) {
+    text-align: left;
+}
+
+#detail > #productDesc > #p_size > div:nth-child(2) p {
+    display: inline;
+    margin-right: 5%;
+}
+
+
 #detail > #productDesc > #p_size div {
     display: inline;
     margin: 0 0;
@@ -268,7 +278,7 @@ section {
 }
 
 #detail > #productDesc > #size_detail > #size_table #size_btn td {
-    padding: 2.5px;
+    padding: 4px;
     border: 1px solid rgb(212, 212, 212);;
     border-radius: 10%;
     color:rgb(12, 12, 12);
@@ -285,6 +295,18 @@ section {
     background-color: rgb(230, 132, 132);
     border: none;
     color: white;
+}
+
+#detail > #productDesc > #size_detail > #size_table #choose_size td {
+    padding: 2px;
+    border-radius: 0;
+    background-color: rgb(241, 241, 241);
+    border: none;
+}
+
+#detail > #productDesc > #size_detail > #size_table #choose_size span {
+    color: rgb(212, 63, 63);
+    font-weight: 700;
 }
 
 #detail > #productDesc > #p_selected div {

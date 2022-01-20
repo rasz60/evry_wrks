@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="resources/css/productDetail.css" type="text/css">
-    <title>EDT</title>
+    <title>EDT_PRODUCT</title>
     <script src="resources/js/jquery.js"></script>
 </head>
 
@@ -61,7 +61,7 @@
                     <p class="grayTxt">Size</p>
                 </div>
                 <div>
-                    <p><b>Ur Size <span>+</span></b></p>
+                    <p><b>Ur Size</b></p><span>+</span>
                 </div>
             </div>
             <script>
@@ -74,10 +74,49 @@
                         };
                     });
                 });
+
+                $(function() {
+                    $(".size td").on("click", function() {
+                        var size = $(this).text();
+                        $("#check").text(size);
+                        $(this).css({"background-color":"black", "color":"white"});
+                        $(".size td").not(this).css({"background-color":"white", "color":"black"});
+                    });
+                });
+
+                $(function() {
+                    $("#cancel_size").on("click", function() {
+                        $("#check").text("");
+                        $(".size td").css({"background-color":"white", "color":"black"});
+                    });
+                });
+
+                $(function() {
+                    $("#size_btn td").on("click", function() {
+                        var size = $("#check").text();
+                        if ( size != null ) {
+                            $("#p_size div:nth-child(2)>p>b").text(size);
+                            $("#p_size div:nth-child(2)>p").css({"margin":"12%"});
+                            $("#size_detail").css({"display":"none"});
+                        }
+                    });
+                });
+
+                $(function() {
+                    $("#size_btn #cancel").on("click", function() {
+                            $("#size_detail").css({"display":"none"});
+                            $("#p_size div:nth-child(2)>p>b").text("Ur Size");
+                            $("#p_size div:nth-child(2)>p").css({"margin":"5%"});
+                            $("#check").text("");
+                            $(".size td").css({"background-color":"white", "color":"black"});
+
+                    });
+                });
+
             </script>
             <div id="size_detail">
                 <table id="size_table">
-                    <tr>
+                    <tr class="size">
                         <td>200</td>
                         <td>205</td>
                         <td>210</td>
@@ -85,7 +124,7 @@
                         <td>220</td>
                         <td>225</td>
                     </tr>
-                    <tr>
+                    <tr class="size">
                         <td>230</td>
                         <td>235</td>
                         <td>240</td>
@@ -93,7 +132,7 @@
                         <td>250</td>
                         <td>255</td>
                     </tr>
-                    <tr>
+                    <tr class="size">
                         <td>260</td>
                         <td>265</td>
                         <td>270</td>
@@ -101,7 +140,7 @@
                         <td>280</td>
                         <td>285</td>
                     </tr>
-                    <tr>
+                    <tr class="size">
                         <td>290</td>
                         <td>295</td>
                         <td>300</td>
@@ -109,6 +148,12 @@
                         <td>310</td>
                         <td>315</td>
                     </tr>
+                    <tr id="choose_size">
+                        <td colspan="2">size</td>
+                        <td colspan="3" id="check"></td>
+                        <td id="cancel_size">
+                            <span>x</span>
+                        </td>
                     <tr id="size_btn">
                         <td colspan="3" id="submit">choose</td>
                         <td colspan="3" id="cancel">cancel</td>
