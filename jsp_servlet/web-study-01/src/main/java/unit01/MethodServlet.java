@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ParamServlet
+ * Servlet implementation class MethodServlet
  */
-@WebServlet("/ParamServlet")
-public class ParamServlet extends HttpServlet {
+@WebServlet("/MethodServlet")
+public class MethodServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -21,20 +21,18 @@ public class ParamServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
-		
-		String id = request.getParameter("id");
-		int age = Integer.parseInt(request.getParameter("age"));
-		
 		PrintWriter out = response.getWriter();
-		out.println("<html><body>");
-		out.println("당신이 입력한 정보입니다.<br />");
-		out.println("아이디 : ");
-		out.println(id);
-		out.println("<br />나이 : ");
-		out.println(age);
-		
-		out.println("<br /><a href='javascript:histroy.go(-1)'>다시</a>");
-		out.println("<br /></html>");
+		out.println("<h1>GET 방식 처리</h1>");
+		out.close();
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<h1>POST 방식 처리</h1>");
 		out.close();
 	}
 

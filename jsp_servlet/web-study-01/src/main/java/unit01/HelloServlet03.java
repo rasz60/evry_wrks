@@ -1,4 +1,4 @@
-package unit02;
+package unit01;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ParamServlet
+ * Servlet implementation class HelloServlet03
  */
-@WebServlet("/ParamServlet")
-public class ParamServlet extends HttpServlet {
+@WebServlet("/HelloServlet03")
+public class HelloServlet03 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -21,21 +21,9 @@ public class ParamServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
-		
-		String id = request.getParameter("id");
-		int age = Integer.parseInt(request.getParameter("age"));
-		
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>");
-		out.println("당신이 입력한 정보입니다.<br />");
-		out.println("아이디 : ");
-		out.println(id);
-		out.println("<br />나이 : ");
-		out.println(age);
-		
-		out.println("<br /><a href='javascript:histroy.go(-1)'>다시</a>");
-		out.println("<br /></html>");
-		out.close();
+		PrintWriter w = response.getWriter();
+		w.println("<html><body><h1>Hello, Servlet!</h1><p>안녕, 서블릿!</p></body></html>");
+		w.close();
 	}
 
 }
