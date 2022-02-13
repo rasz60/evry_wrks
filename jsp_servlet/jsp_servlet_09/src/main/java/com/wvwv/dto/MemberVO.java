@@ -8,6 +8,17 @@ public class MemberVO {
 	private String phone;
 	private int admin;
 	
+	public MemberVO() {}
+	
+	public MemberVO(String name, String userid, String pwd, String email, String phone, int admin) {
+		this.name = name;
+		this.userid = userid;
+		this.pwd = pwd;
+		this.email = email;
+		this.phone = phone;
+		this.admin = admin;
+	}
+
 	public String getName() {
 		return name;
 	}

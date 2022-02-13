@@ -184,4 +184,35 @@ public class MemberDAO {
 		}
 		return result;
 	}
+	
+	public int updateMember(MemberVO mVo) {
+		int result = -1;
+		
+		String sql = "UPDATE member SET pwd=?, email=?, phone=?, admin=? WHERE userid=?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mVo.getPwd());
+			pstmt.setString(2, mVo.getEmail());
+			pstmt.setString(3, mVo.getPhone());
+			pstmt.setInt(4, mVo.getAdmin());
+			pstmt.setString(5, mVo.getUserid());
+			
+			result = pstmt.executeUpdate();
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch(Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return result;
+	}
 }
