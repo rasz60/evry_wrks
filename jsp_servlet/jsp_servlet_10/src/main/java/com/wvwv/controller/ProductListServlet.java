@@ -2,7 +2,6 @@ package com.wvwv.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wvwv.command.Command;
+import com.wvwv.command.ProductDeleteCommand;
+import com.wvwv.command.ProductDeleteDoneCommand;
 import com.wvwv.command.ProductListCommand;
+import com.wvwv.command.ProductUpdateCommand;
+import com.wvwv.command.ProductUpdateDoneCommand;
 import com.wvwv.command.ProductWriteCommand;
 
 /**
@@ -49,6 +52,7 @@ public class ProductListServlet extends HttpServlet {
 		
 		String uri = request.getRequestURI();
 		String contextPath = request.getContextPath();
+		System.out.println(uri);
 		String command = uri.substring(contextPath.length());
 		
 		if ( command.equals("/productList.do") ) {
@@ -56,6 +60,18 @@ public class ProductListServlet extends HttpServlet {
 			cmd.execute(request, response);
 		} else if ( command.equals("/productWrite.do") ) {
 			cmd = new ProductWriteCommand();
+			cmd.execute(request, response);
+		} else if ( command.equals("/productUpdate.do") ) {
+			cmd = new ProductUpdateCommand();
+			cmd.execute(request, response);
+		} else if ( command.equals("/productUpdateDone.do") ) {
+			cmd = new ProductUpdateDoneCommand();
+			cmd.execute(request, response);
+		} else if ( command.equals("/productDelete.do") ) {
+			cmd = new ProductDeleteCommand();
+			cmd.execute(request, response);
+		} else if ( command.equals("/productDeleteDone.do") ) {
+			cmd = new ProductDeleteDoneCommand();
 			cmd.execute(request, response);
 		}
 
