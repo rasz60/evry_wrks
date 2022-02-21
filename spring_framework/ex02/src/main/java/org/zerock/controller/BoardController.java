@@ -27,6 +27,11 @@ public class BoardController {
 		log.info("list-----------------------");
 	}
 	
+	@GetMapping("/register")
+	public void registerGET() {
+		log.info("resiterGET()");
+	}
+	
 	@PostMapping("/register")
 	public String register(BoardVO board, RedirectAttributes rttr) {
 		log.info("board: " + board);
@@ -45,7 +50,7 @@ public class BoardController {
 		int result = service.modify(board);
 		
 		if(result == 1) {
-			rttr.addFlashAttribute("result", "Success");
+			rttr.addFlashAttribute("result", "modify success");
 		}
 		return "redirect:/board/list";
 	}
@@ -55,9 +60,16 @@ public class BoardController {
 		int result = service.remove(bno);
 		
 		if ( result == 1) {
-			rttr.addFlashAttribute("result","success");
+			rttr.addFlashAttribute("result","remove success");
 		}
 		
 		return "redirect:/board/list";
+	}
+	
+	@GetMapping({"/read", "/modify"})	
+	public void read(@RequestParam("bno") Long bno, Model model) {
+		log.info("read---------------------");
+		model.addAttribute("board", service.get(bno));
+
 	}
 }
