@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace : interface path // value : query statementw -->	
+<mapper namespace="org.zerock.mapper.BoardMapper">
+
+<sql id="criteria">
+<trim prefix="(" suffix=") AND">   
+	<foreach collection="typeArr" item="type" separator="OR">
+	<if test="type == 'T'.toString()">
+		title like '%'||#{keyword}||'%'
+	</if>
+	
+	<if test="type == 'C'.toString()">
+		content like '%'||#{keyword}||'%'
+	</if>
+	
+	<if test="type == 'W'.toString()">
+		writer like '%'||#{keyword}||'%'
+	</if>
+	</foreach>
+</trim>
+</sql>
+
+
+<select id="getList" resultType="org.zerock.domain.BoardVO">
+<![CDATA[
+	SELECT * FROM tbl_board ORDER BY bno DESC
+	]]>
+</select>
+
+
+<insert id="insert">
+	INSERT INTO tbl_board(bno, title, content, writer) VALUES (seq_board.nextval, #{title}, #{content}, #{writer})
+</insert>
+
+<insert id="insertSelectKey">
+	// selectKey는 insert를 실행하고 현재 키의 값을 가져온다.
+	<selectKey order="BEFORE" keyProperty="bno" resultType="long" >
+		SELECT seq_board.currval FROM dual
+	</selectKey>
+	
+	INSERT INTO tbl_board(bno, title, content, writer) VALUES (seq_board.nextval, #{title}, #{content}, #{writer})
+</insert>
+
+<select id="read"  resultType="org.zerock.domain.BoardVO" >
+<![CDATA[
+	SELECT * FROM tbl_board WHERE bno=#{bno}
+	]]>
+</select>
+
+<delete id="delete">
+	DELETE FROM tbl_board WHERE bno=#{bno}
+</delete>
+
+<update id="update">
+UPDATE tbl_board SET title=#{title}, content= #{content}, writer = #{writer}, updatedate = SYSDATE WHERE bno = #{bno}
+</update>
+
+
+
+
+<select id="getListWithPage" resultType="org.zerock.domain.BoardVO">
+<![CDATA[
+	SELECT * 
+	FROM ( SELECT /*+ INDEX_DESC(tbl_board pk_board) */ rownum rn, bno, title, writer, regDate, updateDate 
+		   FROM tbl_board 
+		   WHERE 
+]]>	
+<include refid="criteria" />
+<![CDATA[
+		   bno > 0 AND rownum > 0 AND rownum <= (#{pageNum} * #{amount}) )
+	WHERE rn > (#{pageNum} - 1) * #{amount}
+	]]>
+</select>
+
+
+<select id="getTotalCount" resultType="int">
+	SELECT count(bno) FROM tbl_board WHERE	
+	<include refid="criteria" />
+	 bno > 0
+</select>
+
+
+<select id="searchTest" resultType="org.zerock.domain.BoardVO" >
+<![CDATA[
+SELECT * FROM tbl_board
+WHERE
+]]>
+
+<trim suffix="AND">
+<foreach collection="map" index="key" item="val" separator="OR">
+	<if test="key == 'T'.toString()">
+		title like #{val}
+	</if>
+	
+	<if test="key == 'C'.toString()">
+		content like #{val}
+	</if>
+	
+	<if test="key == 'W'.toString()">
+		writer like #{val}
+	</if>
+</foreach>
+</trim>
+
+<![CDATA[
+rownum < 10
+]]>
+</select>
+
+</mapper>
