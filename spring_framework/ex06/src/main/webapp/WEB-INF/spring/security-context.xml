@@ -9,6 +9,7 @@
 	<bean id="customLoginSuccessHandler" class="org.zerock.security.CustomLoginSuccessHandler" />
 	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 	<bean id="customUserDetailsService" class="org.zerock.security.CustomUserDetailsService" />
+	
 
 	<security:http>
 		<security:intercept-url pattern="/sample/all" access="permitAll" />
@@ -20,9 +21,13 @@
 		<security:access-denied-handler ref="customAccessDeniedHandler" />
 	
 		<security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccessHandler" />
+		
+		<!-- 로그아웃하면 지정한 쿠키 삭제 해주는 context 설정 -->
+		<security:logout logout-url="/customLogout" invalidate-session="true" delete-cookies="remember-me, JSESSION_ID" />
+		
+		<!-- DB TABLE을 활용하여 로그인 정보를 저장 (사용자에게 쿠키를 생성하여 저장) -->
+		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800" />
 	
-		<security:logout logout-url="/customLogout" invalidate-session="true" />
-			
 	</security:http>
 	
 	<security:authentication-manager>
